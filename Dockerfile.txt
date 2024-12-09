@@ -1,0 +1,17 @@
+FROM ubuntu:24.04
+
+ENV TZ=Asia/Tokyo
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && \
+    echo $TZ > /etc/timezone
+RUN apt update && apt upgrade -y
+
+WORKDIR /artifact # カレントディレクトリ
+
+# 必要なAPTパッケージを適当にインストール
+RUN apt install -y python3-git python3-numpy python3-pip python3-full pipx python3-xyzservices python3-matridge python3-markdown-include tox python3-envs python3-pytest python3-pytest-cov node-coveralls
+
+# Gitリポジトリを展開しても良い
+# RUN git clone ${repository}
+
+# Dockerfileを実行する場所からファイルをコピーする場合
+# COPY . /artifact
