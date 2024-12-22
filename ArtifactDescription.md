@@ -1,26 +1,37 @@
 # Artifact Description
 
-## 概要：{改変のタイトル}
+## 概要：{パスワードの誤入力対応}
 
-以下，記述事項の説明．
+改変対象となるのはyagmailだ.
+yagmailはlinuxでgmailのアドレスからメールを送信できるアプリケーションだ.
 
-* 改変対象OSSを，元リポジトリのURLと共に概説する．
-  + 改変内容を理解するのに必要は範囲でよい．
-* 改変内容を説明する．
-  + 後述の評価手順と対応している必要がある．
-  + 関連するissuesやPRがあるならリンクする．
-* 改変のタイトルは，分かりやすいもの良く考えて書くこと．
-  + 評価者はまずタイトルを見る．
+* インストール後以下のように使用するgmailアカウントにログインする.
+
+```
+yag = yagmail.SMTP('mygmailusername', 'mygmailpassword')
+```
+sender.pyにSMTPのclassの定義がある.
+SMTP内で定義される_loginによってログイン操作が送信される.
+ログインに必要なパスワードはhandle_passwordによって入力する.
+handle_passwordはpassword.pyで定義される.
+handle_passwordでは入力に対しパスワードを設定する.
+パスワードが間違っている場合はログインできず,エラーを返す.
+
+* 改変内容
+gmailのパスワードは８文字以上であるが,８文字未満のパスワードを入力した場合にパスワードが８文字未満の入力になっていることが分からない.
+そのため,password.py内で８文字未満の文字が入力された場合に８文字未満の入力のため通らないというメッセージを返すようにする.
 
 ## クイックスタート
 
-以下，記述事項の説明．
-
-* Dockerイメージをpullしてrunする手順を具体的に示す．
-
+* dockerhubからリポジトリをpullする.
 ```
-docker pull satoshigeyuki/oss-experiment-uec-2024-example
-docker run -it --rm --name example satoshigeyuki/oss-experiment-uec-2024-example
+docker pull michiro0116/2024-a2110032-yagmail
+docker run -it --rm --name container michiro0116/2024-a2110032-yagmail
+```
+* コンテナ内のテスターを実行する.
+```
+docker pull michiro0116/2024-a2110032-yagmail
+docker run -it --rm --name container michiro0116/2024-a2110032-yagmail
 ```
 
 * コンテナの中に入った後，最低限の動作チェックを行う方法を示す．
