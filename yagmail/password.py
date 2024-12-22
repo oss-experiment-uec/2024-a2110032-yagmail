@@ -16,8 +16,12 @@ def handle_password(user, password):  # pragma: no cover
             raise e
         if password is None:
             import getpass
-
-            password = getpass.getpass("Password for <{0}>: ".format(user))
+            password = ""
+            while len(password) <= 7:
+                print(
+                    "password should be over 8 figures"
+                )
+                password = getpass.getpass("Password for <{0}>: ".format(user))
             answer = ""
             # Python 2 fix
             while answer != "y" and answer != "n":
