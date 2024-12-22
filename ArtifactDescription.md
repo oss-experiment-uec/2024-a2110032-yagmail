@@ -1,6 +1,6 @@
 # Artifact Description
 
-## 概要：{パスワードの誤入力対応}
+## 概要：パスワードの誤入力対応
 
 改変対象となるのはyagmailだ.
 yagmailはlinuxでgmailのアドレスからメールを送信できるアプリケーションだ.
