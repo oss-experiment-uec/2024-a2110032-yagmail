@@ -34,7 +34,7 @@ docker run -it --rm --name container 2024-a2110032-yagmail
 
 * コンテナ内のテスターを実行する.
 ```
-python3 artifact/yagmail/test_password.py
+python3 2024-a211032-yagmail/yagmail/test_password.py
 ```
 テスターの内容は短いパスワードを数回入力した後に長いパスワードを入力したものである.
 　
