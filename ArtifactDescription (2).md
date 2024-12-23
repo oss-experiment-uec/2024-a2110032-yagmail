@@ -26,7 +26,7 @@ gmailのパスワードは８文字以上であるが,８文字未満のパス�
 * dockerhubからリポジトリをpullする.
 ```
 docker pull michiro0116/2024-a2110032-yagmail
-docker run -it --rm --name container 2024-a2110032-yagmail
+docker run -it --rm --name container michiro0116/2024-a2110032-yagmail
 ```
 
 
@@ -59,8 +59,6 @@ Final Password: correctpassword
 
 * 改変内容の変更
 はじめはEmailの本文が添付ファイルになる問題について改善を試みようと思ったが,技術的にプログラムを改善することが難しかったため簡単な機構の改善しか行えなかった.
-docker上の仮想環境での作業に関し理解できない部分やエラー対応に時間を使ってしまい改変に時間をかけることができなかった.
-そのため改変内容がかなり初歩的なものになってしまったため,時間があればより高度な内容の改変を行いたい.
 
 ## 用途
 

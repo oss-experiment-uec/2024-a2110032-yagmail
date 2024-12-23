@@ -1,4 +1,5 @@
 from unittest.mock import patch
+from password import handle_password
 
 def test_handle_password():
     inputs = iter([

@@ -6,12 +6,24 @@ RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && \
 RUN apt update && apt upgrade -y
 
 WORKDIR /artifact
+# カレントディレクトリ
 
 # 必要なAPTパッケージを適当にインストール
-RUN apt install -y python3-git python3-numpy python3-xyzservices python3-matridge python3-markdown-include python3-envs python3-pytest python3-pytest-cov
+RUN apt install -y python3-git python3-venv
+
+# 仮想環境の作成
+RUN python3 -m venv /venv
+
+RUN /venv/bin/pip install --upgrade pip
+
+RUN /venv/bin/pip install keyring
+RUN /venv/bin/pip install keyrings.alt
+
 
 # Gitリポジトリを展開しても良い
-# RUN git clone ${repository}
+RUN git clone https://github.com/oss-experiment-uec/2024-a2110032-yagmail.git
 
 # Dockerfileを実行する場所からファイルをコピーする場合
 # COPY . /artifact
+
+ENV PATH="/venv/bin:$PATH"
