@@ -25,7 +25,7 @@ gmailのパスワードは８文字以上であるが,８文字未満のパス�
 
 * dockerhubからリポジトリをpullする.
 ```
-docker build --no-cache -f Dockerfile.txt -t michiro0116/2024-a2110032-yagmail .
+docker pull michiro0116/2024-a2110032-yagmail
 docker run -it --rm --name container 2024-a2110032-yagmail
 ```
 
