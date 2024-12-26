@@ -1,5 +1,10 @@
 # Artifact Description
 
+**クレジット**：
+
+* ReiyaOhnishi
+有用なissueを提示し、改善案を提案していただいた.
+
 ## 概要：パスワードの誤入力対応
 
 改変対象となるのはyagmailだ.
